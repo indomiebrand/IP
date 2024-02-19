@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress Up Game</title>
+    <style>
+        /* CSS for styling the game */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #character {
+            width: 200px;
+            height: 300px;
+            background-color: #f0f0f0;
+            position: relative;
+            margin: 20px auto;
+        }
+        .clothing-item {
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dress Up Game</h1>
+    <div id="character">
+        <!-- Character display area -->
+    </div>
+    <div>
+        <h2>Choose Clothing</h2>
+        <button onclick="changeClothes('shirt')">Change Shirt</button>
+        <button onclick="changeClothes('pants')">Change Pants</button>
+        <button onclick="changeClothes('shoes')">Change Shoes</button>
+    </div>
+
+    <script>
+        // JavaScript for the dress-up game logic
+        function changeClothes(clothingType) {
+            const character = document.getElementById('character');
+            const clothingItem = document.createElement('img');
+            clothingItem.classList.add('clothing-item');
+
+            switch (clothingType) {
+                case 'shirt':
+                    clothingItem.src = 'shirt.png'; // Path to shirt image
+                    break;
+                case 'pants':
+                    clothingItem.src = 'pants.png'; // Path to pants image
+                    break;
+                case 'shoes':
+                    clothingItem.src = 'shoes.png'; // Path to shoes image
+                    break;
+                default:
+                    return; // Invalid clothing type
+            }
+
+            // Randomly position clothing item on the character
+            clothingItem.style.left = Math.floor(Math.random() * 150) + 'px';
+            clothingItem.style.top = Math.floor(Math.random() * 200) + 'px';
+
+            character.appendChild(clothingItem);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,802 @@
+@font-face {
+    font-family: "Couture";
+    src: url(Fonts/couture-bld.otf);
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Couture";
+}
+
+.login, .register, .profile, .avatarEditor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(300deg, #174787,#fbba43, white);
+	background-size: 180% 180%;
+	animation: gradient 5s ease infinite;
+}
+
+.profile {
+    padding-bottom: 100px;
+    background: linear-gradient(300deg, #C8A822,#46A9D9, #EC8018) no-repeat;
+	background-size: 120% 120%;
+	animation: gradient 5s ease infinite;
+}
+
+.forum {
+    background-color: #52AEBA;
+}
+
+.community {
+  background-color: #E48639;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Login & Signup */
+
+.wrapper, .signup {
+    width: 400px;
+    background: white;
+    color: white;
+    border-radius: 20px;
+    padding: 20px 40px;
+    color: #174787;
+}
+
+.wrapper h1, .signup h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.wrapper .inputBox {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.inputBox input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: #174787 solid 2px;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #174787;
+    padding: 20px 45px 20px 20px;
+    font-family: "Roboto";
+}
+
+.backButton {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #174787;
+    color: white;
+}
+
+.backButton:hover {
+    background-color: #fbba43;
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+
+.inputBox input::placeholder {
+    font-family: "Roboto";
+}
+
+.signup .inputBox {
+    margin-top: 5px;
+}
+
+.wrapper .forgotPassword {
+    display: flex;
+    justify-content: right;
+    font-size: 15px;
+    margin: -15px 0px 15px;
+}
+
+.forgotPassword a {
+    color: #174787;
+    text-decoration: none;
+    font-style: italic;
+    font-family: "Roboto";
+}
+
+.forgotPassword a:hover {
+    color: #fbba43;
+    text-decoration: underline;
+    transition: 0.2s ease-in-out;
+}
+
+.wrapper .btn, .register .btn {
+    width: 100%;
+    height: 45px;
+    background: #174787;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+
+.register .btn {
+    margin-top: 5%;
+}
+
+.wrapper .btn:hover, .register .btn:hover {
+    background-color: #fbba43;
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+
+.wrapper .registerLink {
+    font-size: 15px;
+    text-align: right;
+    margin-top: 20px;
+} 
+
+.wrapper .registerLink p {
+    font-family: "Roboto";
+}
+
+.registerLink a {
+    font-style: italic;
+    font-family: "Roboto Medium";
+}
+
+.registerLink a:hover {
+    color: #fbba43;
+    transition: 0.5s ease-in-out;
+}
+
+/* Profile Page */
+
+
+.profileCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30%;
+    width: 100%;
+    background-color: white;
+}
+
+.profilePicture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.profilePicture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profileInfo {
+    flex: 1 1 auto;
+}
+
+.courseHeader {
+    font-size: 90%;
+    margin: 10px auto;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+.infoItem {
+    margin: 5px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #ABC41E;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statsItem {
+    text-align: center;
+}
+
+.badge {
+    width: 20px;
+    height: 20px;
+    background-color: gold;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.box {
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    margin-right: 5px;
+}
+
+.box.leftBox {
+    width: 65%;
+}
+
+.box.rightBox {
+    width: 30%;
+}
+
+.box.rightBox button {
+    width: 100%;
+    height: 80%;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.box.rightBox img {
+    width: 70%;
+}
+
+.badgeHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.badgeHeader button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.badgeHeader img {
+    width: 40px;
+}
+
+.badgesDisplay {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.badgeItem {
+    width: 70px;
+    height: 70px;
+    background-color: #ABC41E;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badgeItem img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.rewards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Room */
+
+.room {
+    width: 40%;
+    height: auto;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.startTimerButton {
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+
+}
+
+.wall, .floor {
+    position: absolute;
+    width: 100%;
+    bottom: -1%;
+}
+
+.wall {
+    height: 101%;
+    background-color: #E1B899;
+}
+
+.floor {
+    border: 3px solid black;
+    background-color: #BB916C;
+    width: 110%;
+    height: 30%;
+}
+
+/* overlay */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 9998;
+    display: none; 
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* pomodoro timer */
+.pomodoroTimer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    bottom: 15%;
+    z-index: 9999;
+    background-color: #ABC42A;
+    border-radius: 20px;
+    padding: 15px;
+    max-width: 700px;
+    font-family: "Roboto";
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.pomodoroTimer h1 {
+    font-size: 50px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 20px;
+    font-family: "Roboto";
+}
+
+.timer {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #C3E031;
+    padding: 20px 80px;
+    border-radius: 20px;
+}
+
+.timer #time {
+    font-family: "Roboto";
+    color: white;
+    font-size: 60px;
+}
+
+.timer button {
+    padding: 5px 15px;
+    font-size: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFFFFF; 
+    color: #ABC42A; 
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: "Roboto";
+}
+
+.tasks {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tasks h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: "Roboto";
+    color: white;
+    font-weight: 400;
+    text-align: left;
+}
+
+.boldLine {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    
+}
+
+#addNewTaskButton {
+    padding: 50px 10px;
+    font-size: 20px;
+    border: dashed 3px #81951D;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    color: #81951D; 
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Roboto";
+    display: flex;
+    justify-content: center;
+}
+
+#addNewTaskButton img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+
+.addTask.hidden {
+    display: none;
+}
+
+.addTask {
+    background-color: white;
+    padding: 23px;
+    border-radius: 20px;
+}
+
+.addTask h3 {
+    font-family: "Roboto";
+    font-weight: bold;
+    color: #81951D;
+}
+
+.addTask h4 {
+    font-family: "Roboto";
+    display: flex;
+    margin-top: 12px;
+}
+
+.pomoTask  {
+    font-family: "Roboto";
+    display: flex;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ABC42A;
+}
+
+
+.pomoCounter {
+    display: flex;
+    margin-top: 5px;
+}
+
+.pomoCounter img {
+    width: 35px;
+    height: auto;
+}
+
+.pomoCounter input {
+    width: 15%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #81951D;
+    background-color: #C3E031;
+    color: #81951D;
+}
+
+.decrement, .increment {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.cancelButton, .saveButton {
+    font-family: "Roboto";
+    font-weight: bold;
+}
+
+.cancelButton {
+    background: none;
+    border: none;
+    color: #81951D;
+    cursor: pointer;
+}
+
+.saveButton {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: #81951D;
+    color: white;
+}
+
+.taskList {
+    display: none;
+}
+
+.taskList li {
+    display: flex;
+    font-family: "Roboto";
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.editButton {
+    background-color: #81951D;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+/* hides the built-in arrows for the number input field */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+  /* Navbar */
+  .bottomNavBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: 20px;
+    bottom: 0;
+    position: fixed;
+  }
+
+  .bottomNavBar button {
+    border: none;
+    background: none;
+    color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .navbarBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbarBtn img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbarBtn span {
+    margin-top: 5px;
+  }
+
+  /* Forum Page */
+
+  .forumHeader {
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .forumHeader-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .forumHeader-top h1 {
+    margin: 0;
+    color: #52AEBA;
+  }
+  
+  .headerIcons {
+    display: flex;
+  }
+
+  .headerIcons button img {
+    width: 30px;
+  } 
+
+  .headerIcons button {
+    background: none;
+    border: none;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  .forumNavbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .forumNavbar button {
+    background-color: white;
+    color: #52AEBA;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 2px 10px #265359;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 0 25px;
+    cursor: pointer;
+    font-family: "Roboto";
+  }
+
+  .forumNavbar button:hover {
+    background-color: #52AEBA;
+    color: white;
+    transition: 0.5s ease;
+  }
+
+  /* Community Page */
+
+  .searchbarContainer input {
+    font-family: "Roboto";
+    color: #c36015;
+    border: none;
+    background: none;
+    flex: 1;
+    border: none;
+    outline: none; 
+    padding: 10px 15px;
+    font-size: 15px;
+    width: 350px;
+  }
+
+  .searchBar input::placeholder {
+    color: #c36015;
+}
+
+    .searchBar img {
+        width: 30px;
+    }
+
+  .searchBar {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 700px;
+    background-color: white;
+    align-items: center;
+    display: flex;
+    border-radius: 60px;
+    padding: 10px 20px;
+  }
+
+  .searchBar button {
+    border: none;
+    padding: 10px;
+    background: none;
+    cursor: pointer;
+  }
+
+
+/* Leaderboard */
+
+  .leaderboard {
+    background-color: #94C449;
+  }
+
+@media (max-width : 768px ){
+    .wrapper, .signup {
+        width: 80%; 
+        padding: 20px; 
+    }
+
+    .wrapper h1 {
+        font-size: 32px; 
+    }
+
+    .profileCard {
+        width: 90%;
+        display: flex;
+        margin-top: 15px;
+        border-radius: 20px;
+    }
+
+    .profilePicture img {
+        width: 80px;
+        height: 80px;
+    }
+
+
+    .button {
+        padding: 5px;
+    }
+
+    .username {
+        width: 100%;
+    }
+    
+    .boxes {
+        width: 90%;
+    }
+
+    .badgeItem {
+        width: 70px;
+        height: 70px;
+    }
+
+    .room {
+        width: 90%;
+        height: auto;
+    }
+
+    .login, .register, .profile, .avatarEditor {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(300deg, #174787,#fbba43, white) no-repeat;
+        background-size: 180% 180%;
+        animation: gradient 5s ease infinite;
+    }
+}
+

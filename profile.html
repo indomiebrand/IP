@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Profile</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+</head>
+
+<body class="body profile">
+<div class="overlay"></div>
+<div class="profileCard">
+<button id="logOut">LogOut</button>
+    <div class="profilePicture">
+        <img src="Images/Background.png" alt="Profile Picture">
+        <div class="courseHeader">Course Header</div>
+    </div>
+    <div class="profileInfo">
+        <div class="infoItem">
+            <div class="username">
+                Username 
+                <span class="badge"></span>
+            </div>
+        </div>
+        <div class="infoItem">
+            <button class="button avatarEditorBtn">Avatar Editor</button>
+            <span>0 Coins</span>
+        </div>
+        <div class="infoItem">
+            <div class="stats">
+                <div class="statsItem">
+                    <h2 class="count">0</h2>
+                    <div>Posts</div>
+                </div>
+                <div class="statsItem">
+                    <h2 class="count">0</h2>
+                    <div>Buddies</div>
+                </div>
+                <div class="statsItem">
+                    <h2 class="count">0</h2>
+                    <div>NPoints</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="boxes">
+    <div class="box leftBox">
+        <h2 class="badgeHeader">Your Badges <button><img src="Images/EditIcon.png" alt="Edit button to edit badges"></button></h2>
+        <div class="badgesDisplay">
+            <div class="badgeItem"></div>
+            <div class="badgeItem"></div>
+            <div class="badgeItem"></div>
+            <div class="badgeItem"></div>
+        </div>
+    </div>
+    <div class="box rightBox">
+        <button> <img src="Images/RewardsIcon.png" alt="Reward Icon"></button>
+        <div class="rewards">
+            <h4>Your Rewards</h4>
+        </div>
+    </div>
+</div>
+
+<div class="room">  
+    <div class="wall"></div>
+    <div class="floor"></div>
+    <div class="chair"></div>
+    <div class="studyTable">
+        <img src="Images/Room/BasicStudyTable.png" alt="">
+    </div>
+    <div class="tableItem">
+        <img src="Images/Room/Daisy.png" alt="">
+    </div>
+    <div class="chair">
+        <img src="Images/Room/BasicChair.png" alt="">
+    </div>
+    <div class="rug">
+        <img src="Images/Room/BasicRug.png" alt="">
+    </div>
+    <div class="bookshelf">
+        <img src="Images/Room/BasicBookshelf.png" alt="">
+    </div>
+    <div class="fridge">
+        <img src="Images/Room/BasicFridge.png" alt="">
+    </div>
+    <div class="roomButtons">
+        <button class="startTimerButton">Start Timer</button>
+    </div>
+</div>
+
+<div class="pomodoroTimer">
+    <h1>Time To Study!</h1>
+    <div class="timer">
+        <span id="time">25:00</span>
+        <button class="startPomodoroButton">Start</button>
+    </div>
+    <div class="tasks">
+            <h3>Tasks To Do</h3>
+            <div class="boldLine"></div>
+            <button id="addNewTaskButton" onclick="toggleAddTask()"><img src="Images/AddTaskIcon.svg" alt="">Add New Task</button>
+        <div id="addTask" class="addTask hidden">
+            <h3>What are you planning to do?</h3>
+            <input class="pomoTask" type="text" placeholder="Type here...">
+            <h4>Set an estimated Pomo(s)</h4>
+            <div class="pomoCounter">
+                <input type="number" id="pomoInput" value="1" min="1">
+                <button class="decrement"><img src="Images/DownArrowIcon.png" alt=""></button>
+                <button class="increment"><img src="Images/UpArrowIcon.png" alt=""></button>
+            </div>
+                <button class="cancelButton">Cancel</button>
+                <button class="saveButton">Save</button>
+        </div>
+        <div class="taskList hidden">
+        </div>
+    </div>
+</div>
+
+<nav class="bottomNavBar">
+    <button class="homeBtn">        
+        <div class="navbarBtn">
+            <img src="Images/HomeIcon.svg" alt="Home Icon">
+            <span>Home</span>
+        </div>
+    </button>
+    <button class="forumBtn">        
+        <div class="navbarBtn">
+            <img src="Images/ForumIcon.svg" alt="Forum Icon">
+            <span>Forum</span>
+        </div>
+    </button>
+    <button class="communityBtn">        
+        <div class="navbarBtn">
+            <img src="Images/CommunityIcon.svg" alt="Community Icon">
+            <span>Community</span>
+        </div>
+    </button>
+    <button class="leaderboardBtn">        
+        <div class="navbarBtn">
+            <img src="Images/LeaderboardIcon.svg" alt="Leaderboard Icon">
+            <span>Leaderboard</span>
+        </div>
+    </button>
+</nav>
+
+<script>
+
+document.getElementById("logOut").addEventListener("click", function() {
+    window.location.href = "login.html";
+});
+
+
+    document.querySelector(".saveButton").addEventListener("click", function() {
+        var taskInput = document.querySelector(".pomoTask").value;
+        var pomoInput = document.getElementById("pomoInput").value;
+        var addTaskDiv = document.getElementById("addTask");
+        var taskListDiv = document.querySelector(".taskList");
+    
+        // Hide addTaskDiv
+        addTaskDiv.classList.add("hidden");
+    
+        // Show taskListDiv
+        taskListDiv.classList.remove("hidden");
+    
+        if (taskInput.trim() !== "") { // check if task input is not empty
+            var taskList = document.querySelector(".taskList");
+            var listItem = document.createElement("li");
+            var editButton = document.createElement("button");
+    
+            var taskContent = "#" + (taskList.children.length + 1) + " - " + taskInput + "\n" + "0/" + pomoInput + " Pomos";
+    
+            listItem.textContent = taskContent;
+    
+            editButton.textContent = "Edit";
+            editButton.classList.add("editButton");
+    
+            listItem.appendChild(editButton);
+            taskList.appendChild(listItem);
+    
+            // clears the input fields after saving
+            document.querySelector(".pomoTask").value = "";
+            document.getElementById("pomoInput").value = "1";
+        }
+    });
+    
+    // Event listener for edit buttons
+    document.querySelector(".taskList").addEventListener("click", function(event) {
+        if (event.target.classList.contains("editButton")) {
+            var taskListItem = event.target.parentElement;
+            var taskText = taskListItem.textContent.split("\n")[0].split(" - ")[1].trim(); // Get the task text
+            var pomoText = taskListItem.textContent.split("\n")[1].split(" ")[0].trim(); // Get the pomo text
+    
+            // Set the task input field value
+            document.querySelector(".pomoTask").value = taskText;
+    
+            // Set the pomo input field value
+            document.getElementById("pomoInput").value = pomoText;
+    
+            // Remove the task from the task list
+            taskListItem.remove();
+        }
+    });
+    
+    const overlay = document.querySelector(".overlay");
+    const pomodoroTimer = document.querySelector(".pomodoroTimer");
+    const startTimerButton = document.querySelector(".startTimerButton");
+    
+    overlay.addEventListener("click", function() {
+        hideOverlayAndTimer();
+    });
+    
+    startTimerButton.addEventListener("click", function() {
+        overlay.style.display = "block";
+        pomodoroTimer.style.display = "block";
+        setTimeout(function() {
+            overlay.style.opacity = "1";
+            pomodoroTimer.style.opacity = "1";
+        }, 50); 
+    });
+    
+    function hideOverlayAndTimer() {
+        overlay.style.opacity = "0";
+        pomodoroTimer.style.opacity = "0";
+        setTimeout(function() {
+            overlay.style.display = "none";
+            pomodoroTimer.style.display = "none";
+        }, 500); 
+    }
+    
+    function toggleAddTask() {
+        var addTaskDiv = document.getElementById("addTask");
+        addTaskDiv.classList.toggle("hidden");
+    
+        var addNewTaskButton = document.getElementById("addNewTaskButton");
+        addNewTaskButton.style.display = "none";
+    }
+    
+    function hideAddTask() {
+        var addTaskDiv = document.getElementById("addTask");
+        addTaskDiv.classList.add("hidden");
+    
+        var addNewTaskButton = document.getElementById("addNewTaskButton");
+        addNewTaskButton.style.display = "block";
+    }
+    </script>
+</body>
+</html>
