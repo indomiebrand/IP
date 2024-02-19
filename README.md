@@ -1,4 +1,4 @@
-# Your Project's Name
+# StudyInc.
 
 StudyInc. is an app designed specifically for Ngee Ann students with the aim to enhance their study habits through gamification. It also aims to be a way for students to communicate with each other to create a friendly environment where everyone knows each other, regardless of what course they're in.
  
